@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Art World</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+  <style>
+    body {
+      background: linear-gradient(120deg, #1a1a40, #3b0b4f, #fd5e53);
+      background-size: 200% 200%;
+      animation: bgWave 15s ease infinite;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgWave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- Navbar -->
+  <header class="w-full py-6 px-10 flex justify-between items-center z-10 relative">
+    <h1 class="text-3xl font-bold">3DArt</h1>
+    <nav class="space-x-6 text-lg">
+      <a href="#home" class="hover:text-cyan-300">Home</a>
+      <a href="#gallery" class="hover:text-cyan-300">Gallery</a>
+      <a href="#contact" class="hover:text-cyan-300">Contact</a>
+      <button id="themeToggle" class="ml-4">🌙</button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <!-- Hero Section -->
+<section id="home" class="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-10 md:px-24 py-20 overflow-hidden">
+  <!-- Text Content -->
+  <div class="max-w-xl z-10">
+    <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+      Welcome to <span class="text-orange-400">3D Art World</span>
+    </h2>
+    <p class="text-xl md:text-2xl mb-6 text-white/90">
+      Dive into the world of interactive, immersive, and modern 3D visuals crafted with code and creativity.
+    </p>
+    <a href="image/img1.11.jpg" class="bg-orange-500 text-white px-6 py-3 rounded-full text-lg hover:bg-orange-600 transition shadow-lg">
+      Explore Gallery
+    </a>
+  </div>
+
+  <!-- Visual Art / 3D Display (canvas already exists globally) -->
+  <div class="hidden md:block w-full md:w-1/2 h-[400px] relative z-0">
+    <!-- Empty div, since the canvas background is global and covers it -->
+  </div>
+
+  <!-- Artistic Wave Background -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <svg viewBox="0 0 1440 600" class="w-full h-full opacity-30">
+      <path fill="#ff5e57" fill-opacity="0.5" d="M0,288L60,288C120,288,240,288,360,266.7C480,245,600,203,720,181.3C840,160,960,160,1080,176C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+    </svg>
+  </div>
+</section>
+
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-20 px-10 md:px-24 bg-black/30 backdrop-blur-sm rounded-t-[3rem]">
+    <h3 class="text-4xl font-bold mb-10 text-center">Our Art Gallery</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition">
+        <h4 class="text-2xl mb-2 font-semibold">Digital Wave</h4>
+        <p>Flowing abstract waves in gradient colors brought to life with 3D curves.</p>
+      </div>
+      <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition">
+        <h4 class="text-2xl mb-2 font-semibold">Glowing Sphere</h4>
+        <p>A radiant wireframe sphere, floating in motion — powered by Three.js.</p>
+      </div>
+      <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition">
+        <h4 class="text-2xl mb-2 font-semibold">Futuristic Geometry</h4>
+        <p>Art meets code in symmetrical, rotating 3D shapes with glowing edges.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+<section id="testimonials" class="py-24 px-10 md:px-24 bg-black/40 backdrop-blur-md text-white">
+  <h3 class="text-4xl font-bold text-center mb-16">What Our Clients Say</h3>
+  <div class="grid md:grid-cols-3 gap-8">
+    
+    <!-- Testimonial Card 1 -->
+    <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-pink-400 hover:scale-105 transition">
+      <p class="text-lg italic mb-4">"The 3D visuals are simply stunning. Our users were blown away by the interactivity and depth."</p>
+      <div class="font-bold text-pink-300">Sujan Shrestha</div>
+      <div class="text-sm text-white/70">Creative Director, VisionLab</div>
+    </div>
+
+    <!-- Testimonial Card 2 -->
+    <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-cyan-400 hover:scale-105 transition">
+      <p class="text-lg italic mb-4">"An extraordinary mix of art and code. The design truly feels alive and futuristic."</p>
+      <div class="font-bold text-cyan-300">Priya Karki</div>
+      <div class="text-sm text-white/70">UX Designer, Innovate Nepal</div>
+    </div>
+
+    <!-- Testimonial Card 3 -->
+    <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-orange-400 hover:scale-105 transition">
+      <p class="text-lg italic mb-4">"One of the most beautiful web experiences we've ever had. Highly recommended!"</p>
+      <div class="font-bold text-orange-300">Anil Joshi</div>
+      <div class="text-sm text-white/70">CEO, SparkWebs</div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-10 md:px-24 bg-gradient-to-t from-[#1a1a40] to-transparent">
+    <h3 class="text-4xl font-bold mb-10 text-center">Contact Us</h3>
+    <form class="max-w-2xl mx-auto grid gap-6">
+      <input type="text" placeholder="Your Name" class="p-4 rounded-lg bg-white/20 text-white placeholder-white/80 outline-none focus:ring-2 ring-orange-400">
+      <input type="email" placeholder="Your Email" class="p-4 rounded-lg bg-white/20 text-white placeholder-white/80 outline-none focus:ring-2 ring-orange-400">
+      <textarea placeholder="Your Message" rows="5" class="p-4 rounded-lg bg-white/20 text-white placeholder-white/80 outline-none focus:ring-2 ring-orange-400"></textarea>
+      <button type="submit" class="bg-orange-500 py-3 rounded-lg font-semibold text-lg hover:bg-orange-600 transition">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 bg-black/30 text-white">
+    &copy; 2025 3DArt World — All rights reserved.
+  </footer>
+
+  <!-- 3D Sphere with Three.js -->
+  <canvas id="bgCanvas"></canvas>
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bgCanvas'), alpha: true });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.position.z = 30;
+
+    const geometry = new THREE.SphereGeometry(10, 64, 64);
+    const material = new THREE.MeshBasicMaterial({ wireframe: true, color: 0xff00ff });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+
+    function animate() {
+      requestAnimationFrame(animate);
+      sphere.rotation.x += 0.003;
+      sphere.rotation.y += 0.005;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
+  <!-- Dark Mode Toggle -->
+  <script>
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      toggleBtn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+    });
+  </script>
+
+</body>
+</html>
