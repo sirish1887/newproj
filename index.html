@@ -4,8 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>3D Art World</title>
+
+  <!-- ✅ Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ✅ Font Awesome for social icons -->
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+
+  <!-- ✅ Three.js -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+
   <style>
     body {
       background: linear-gradient(120deg, #1a1a40, #3b0b4f, #fd5e53);
@@ -14,13 +28,11 @@
       color: white;
       overflow-x: hidden;
     }
-
     @keyframes bgWave {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
     canvas {
       position: absolute;
       top: 0;
@@ -40,38 +52,129 @@
       <a href="#home" class="hover:text-cyan-300">Home</a>
       <a href="#gallery" class="hover:text-cyan-300">Gallery</a>
       <a href="#contact" class="hover:text-cyan-300">Contact</a>
+      <a href="#testimonials" class="hover:text-cyan-300">Our Clients</a>
+      <a href="#about" class="hover:text-cyan-300">About</a>
       <button id="themeToggle" class="ml-4">🌙</button>
     </nav>
   </header>
 
   <!-- Hero Section -->
-  <!-- Hero Section -->
-<section id="home" class="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-10 md:px-24 py-20 overflow-hidden">
+  <section id="home" class="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-10 md:px-24 py-20 overflow-hidden">
+    <div class="max-w-xl z-10">
+      <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+        Welcome to <span class="text-orange-400">3D Art World</span>
+      </h2>
+      <p class="text-xl md:text-2xl mb-6 text-white/90">
+        Dive into the world of interactive, immersive, and modern 3D visuals crafted with code and creativity.
+      </p>
+      <a href="image/img1.11.jpg" class="bg-orange-500 text-white px-6 py-3 rounded-full text-lg hover:bg-orange-600 transition shadow-lg">
+        Explore Gallery
+      </a>
+    </div>
+    <div class="hidden md:block w-full md:w-1/2 h-[400px] relative z-0"></div>
+    <div class="absolute inset-0 -z-10 pointer-events-none">
+      <svg viewBox="0 0 1440 600" class="w-full h-full opacity-30">
+        <path fill="#ff5e57" fill-opacity="0.5"
+              d="M0,288L60,288C120,288,240,288,360,266.7C480,245,600,203,720,181.3C840,160,960,160,1080,176C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z" />
+      </svg>
+    </div>
+  </section>
+
+<!-- About Us Section -->
+<section id="about" class="relative py-24 px-6 md:px-24 bg-gradient-to-b from-[#3b0b4f] to-[#1a1a40] text-white flex flex-col md:flex-row items-center md:items-start gap-12">
+
   <!-- Text Content -->
-  <div class="max-w-xl z-10">
-    <h2 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-      Welcome to <span class="text-orange-400">3D Art World</span>
-    </h2>
-    <p class="text-xl md:text-2xl mb-6 text-white/90">
-      Dive into the world of interactive, immersive, and modern 3D visuals crafted with code and creativity.
+  <div class="md:w-1/2 max-w-xl z-10">
+    <h3 class="text-4xl font-bold mb-6">About Us</h3>
+    <p class="mb-6 text-lg leading-relaxed">
+      At 3D Art World, we specialize in crafting immersive digital experiences using cutting-edge 3D technology. Our passion is to blend creativity with code to bring mesmerizing visuals that inspire and engage.
     </p>
-    <a href="image/img1.11.jpg" class="bg-orange-500 text-white px-6 py-3 rounded-full text-lg hover:bg-orange-600 transition shadow-lg">
-      Explore Gallery
-    </a>
+    <p class="text-lg leading-relaxed">
+      From interactive sculptures to dynamic animations, our team is dedicated to pushing the boundaries of web-based art. Join us on this journey to explore the future of digital creativity.
+    </p>
   </div>
 
-  <!-- Visual Art / 3D Display (canvas already exists globally) -->
-  <div class="hidden md:block w-full md:w-1/2 h-[400px] relative z-0">
-    <!-- Empty div, since the canvas background is global and covers it -->
+  <!-- 3D Image Canvas -->
+  <div id="aboutImageContainer" class="md:w-1/2 w-full h-80 md:h-96 relative z-10">
+    <canvas id="aboutImageCanvas" class="w-full h-full rounded-xl shadow-2xl"></canvas>
   </div>
 
-  <!-- Artistic Wave Background -->
-  <div class="absolute inset-0 -z-10 pointer-events-none">
-    <svg viewBox="0 0 1440 600" class="w-full h-full opacity-30">
-      <path fill="#ff5e57" fill-opacity="0.5" d="M0,288L60,288C120,288,240,288,360,266.7C480,245,600,203,720,181.3C840,160,960,160,1080,176C1200,192,1320,224,1380,240L1440,256L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
-    </svg>
-  </div>
 </section>
+
+<!-- 3D Animation Script -->
+<script src="https://unpkg.com/three@0.150.1/build/three.min.js"></script>
+<script>
+  const container = document.getElementById('aboutImageContainer');
+  const canvas = document.getElementById('aboutImageCanvas');
+
+// Ensure the canvas is rendered at the right time
+window.addEventListener('load', () => {
+  const container = document.getElementById('aboutImageContainer');
+  const canvas = document.getElementById('aboutImageCanvas');
+
+  const scene = new THREE.Scene();
+
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  camera.position.z = 3;
+
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  renderer.setSize(width, height);
+
+  const geometry = new THREE.PlaneGeometry(5, 3);
+  const loader = new THREE.TextureLoader();
+  const texture = loader.load('image1.jpg', () => {
+    // Render once texture is loaded
+    renderer.render(scene, camera);
+  });
+
+  const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+  const plane = new THREE.Mesh(geometry, material);
+  scene.add(plane);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    plane.rotation.y += 0.01;
+    plane.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Handle window resize properly
+  window.addEventListener('resize', () => {
+    const newWidth = container.clientWidth;
+    const newHeight = container.clientHeight;
+    renderer.setSize(newWidth, newHeight);
+    camera.aspect = newWidth / newHeight;
+    camera.updateProjectionMatrix();
+  });
+});
+
+
+  function animate() {
+    requestAnimationFrame(animate);
+    plane.rotation.y += 0.01;
+    plane.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Handle resizing
+  window.addEventListener('resize', () => {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  });
+</script>
+
+
+
 
 
   <!-- Gallery Section -->
@@ -94,34 +197,26 @@
   </section>
 
   <!-- Testimonials Section -->
-<section id="testimonials" class="py-24 px-10 md:px-24 bg-black/40 backdrop-blur-md text-white">
-  <h3 class="text-4xl font-bold text-center mb-16">What Our Clients Say</h3>
-  <div class="grid md:grid-cols-3 gap-8">
-    
-    <!-- Testimonial Card 1 -->
-    <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-pink-400 hover:scale-105 transition">
-      <p class="text-lg italic mb-4">"The 3D visuals are simply stunning. Our users were blown away by the interactivity and depth."</p>
-      <div class="font-bold text-pink-300">Sujan Shrestha</div>
-      <div class="text-sm text-white/70">Creative Director, VisionLab</div>
+  <section id="testimonials" class="py-24 px-10 md:px-24 bg-black/40 backdrop-blur-md text-white">
+    <h3 class="text-4xl font-bold text-center mb-16">What Our Clients Say</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-pink-400 hover:scale-105 transition">
+        <p class="text-lg italic mb-4">"The 3D visuals are simply stunning. Our users were blown away by the interactivity and depth."</p>
+        <div class="font-bold text-pink-300">Sujan Shrestha</div>
+        <div class="text-sm text-white/70">Creative Director, VisionLab</div>
+      </div>
+      <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-cyan-400 hover:scale-105 transition">
+        <p class="text-lg italic mb-4">"An extraordinary mix of art and code. The design truly feels alive and futuristic."</p>
+        <div class="font-bold text-cyan-300">Priya Karki</div>
+        <div class="text-sm text-white/70">UX Designer, Innovate Nepal</div>
+      </div>
+      <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-orange-400 hover:scale-105 transition">
+        <p class="text-lg italic mb-4">"One of the most beautiful web experiences we've ever had. Highly recommended!"</p>
+        <div class="font-bold text-orange-300">Anil Joshi</div>
+        <div class="text-sm text-white/70">CEO, SparkWebs</div>
+      </div>
     </div>
-
-    <!-- Testimonial Card 2 -->
-    <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-cyan-400 hover:scale-105 transition">
-      <p class="text-lg italic mb-4">"An extraordinary mix of art and code. The design truly feels alive and futuristic."</p>
-      <div class="font-bold text-cyan-300">Priya Karki</div>
-      <div class="text-sm text-white/70">UX Designer, Innovate Nepal</div>
-    </div>
-
-    <!-- Testimonial Card 3 -->
-    <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-orange-400 hover:scale-105 transition">
-      <p class="text-lg italic mb-4">"One of the most beautiful web experiences we've ever had. Highly recommended!"</p>
-      <div class="font-bold text-orange-300">Anil Joshi</div>
-      <div class="text-sm text-white/70">CEO, SparkWebs</div>
-    </div>
-
-  </div>
-</section>
-
+  </section>
 
   <!-- Contact Section -->
   <section id="contact" class="py-20 px-10 md:px-24 bg-gradient-to-t from-[#1a1a40] to-transparent">
@@ -134,9 +229,22 @@
     </form>
   </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 bg-black/30 text-white">
-    &copy; 2025 3DArt World — All rights reserved.
+  <!-- ✅ Footer with working social icons -->
+  <footer class="text-center py-12 bg-black/30 text-white space-y-6">
+    <h4 class="text-2xl font-semibold">3DArt World</h4>
+    <p class="text-white/70 max-w-xl mx-auto px-4">
+      Explore immersive 3D experiences crafted with creativity and code. Let your imagination transform into art.
+    </p>
+
+    <!-- ✅ Social Icons -->
+    <div class="flex justify-center space-x-6 text-2xl mt-4">
+  <a href="#" class="hover:text-blue-500 transition"><i class="fab fa-facebook-f"></i></a>
+  <a href="#" class="hover:text-pink-500 transition"><i class="fab fa-instagram"></i></a>
+  <a href="#" class="hover:text-sky-400 transition"><i class="fab fa-twitter"></i></a>
+  <a href="#" class="hover:text-blue-400 transition"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+    <p class="text-sm text-white/60 mt-6">&copy; 2025 3DArt World — All rights reserved.</p>
   </footer>
 
   <!-- 3D Sphere with Three.js -->
