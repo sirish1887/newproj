@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Form - 3D Art World</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      background-image: url('image8.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Flying bird animation */
+    .flying-bird {
+      position: fixed;
+      top: 20vh;
+      left: -100px; /* Start off screen left */
+      width: 80px;
+      height: auto;
+      opacity: 0.8;
+      z-index: 0;
+      animation: flyRight 20s linear infinite;
+      filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
+    }
+
+    @keyframes flyRight {
+      0% {
+        left: -100px;
+        transform: rotate(0deg);
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        left: 110vw; /* Off screen right */
+        transform: rotate(10deg);
+        opacity: 0.8;
+      }
+    }
+
+    /* Glassmorphism form container with deep navy and blur */
+    .form-container {
+      background: rgba(10, 25, 50, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      max-width: 420px;
+      width: 90%;
+      padding: 2.5rem 3rem;
+      color: #cce7ff;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+      margin: auto;
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+
+      opacity: 0;
+      transform: scale(1) rotateY(90deg);
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    input, textarea {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      border-radius: 0.6rem;
+      padding: 0.75rem 1.25rem;
+      color: #e0f0ff;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      resize: vertical;
+      box-sizing: border-box;
+      font-weight: 500;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #99bbcccc;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 12px #ff7f50;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    button {
+      background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+      padding: 0.75rem 2rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      border: none;
+      color: #e0f7ff;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #ff7f50 0%, #ff5e57 100%);
+      color: #1a1a40;
+      box-shadow: 0 0 20px #ff7f50;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #ff7f50;
+      text-shadow: 0 0 12px #ff7f50;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 2rem 1.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .form-visible {
+      opacity: 1 !important;
+      transform: scale(1) rotateY(0deg) !important;
+      pointer-events: auto !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Bird flying animation image -->
+  <img src="imageb.png" alt="Flying Bird" class="flying-bird" />
+
+  <main>
+    <button id="showFormBtn" 
+      class="mb-8 px-6 py-3 rounded-full bg-cyan-600 text-white font-semibold hover:bg-cyan-400 hover:text-gray-900 transition shadow-md max-w-max">
+      Show Contact Form
+    </button>
+
+    <form id="contactForm" class="form-container" action="#" method="POST" autocomplete="off">
+      <h1>Contact Us</h1>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+
+      <a href="index.html" 
+        class="block mt-6 py-3 px-6 rounded-full text-center font-semibold bg-cyan-600 text-white 
+        hover:bg-cyan-400 hover:text-gray-900 transition-colors duration-300 shadow-md 
+        max-w-max mx-auto">
+        ← Back to Home
+      </a>
+    </form>
+  </main>
+
+  <script>
+    const showFormBtn = document.getElementById('showFormBtn');
+    const contactForm = document.getElementById('contactForm');
+
+    showFormBtn.addEventListener('click', () => {
+      showFormBtn.style.display = 'none';
+      contactForm.classList.add('form-visible');
+    });
+  </script>
+</body>
+</html>
+
