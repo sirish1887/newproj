@@ -54,6 +54,7 @@
       <a href="#contact" class="hover:text-cyan-300">Contact</a>
       <a href="#testimonials" class="hover:text-cyan-300">Our Clients</a>
       <a href="#about" class="hover:text-cyan-300">About</a>
+      <a href="form.html" class="hover:text-cyan-300">Form</a>
       <button id="themeToggle" class="ml-4">🌙</button>
     </nav>
   </header>
@@ -67,9 +68,10 @@
       <p class="text-xl md:text-2xl mb-6 text-white/90">
         Dive into the world of interactive, immersive, and modern 3D visuals crafted with code and creativity.
       </p>
-      <a href="image/img1.11.jpg" class="bg-orange-500 text-white px-6 py-3 rounded-full text-lg hover:bg-orange-600 transition shadow-lg">
-        Explore Gallery
+      <a href="#gallery" class="bg-orange-500 text-white px-6 py-3 rounded-full text-lg hover:bg-orange-600 transition shadow-lg">
+      Explore Gallery
       </a>
+
     </div>
     <div class="hidden md:block w-full md:w-1/2 h-[400px] relative z-0"></div>
     <div class="absolute inset-0 -z-10 pointer-events-none">
@@ -178,45 +180,67 @@ window.addEventListener('load', () => {
 
 
   <!-- Gallery Section -->
-  <section id="gallery" class="py-20 px-10 md:px-24 bg-black/30 backdrop-blur-sm rounded-t-[3rem]">
-    <h3 class="text-4xl font-bold mb-10 text-center">Our Art Gallery</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition">
-        <h4 class="text-2xl mb-2 font-semibold">Digital Wave</h4>
-        <p>Flowing abstract waves in gradient colors brought to life with 3D curves.</p>
-      </div>
-      <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition">
-        <h4 class="text-2xl mb-2 font-semibold">Glowing Sphere</h4>
-        <p>A radiant wireframe sphere, floating in motion — powered by Three.js.</p>
-      </div>
-      <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition">
-        <h4 class="text-2xl mb-2 font-semibold">Futuristic Geometry</h4>
-        <p>Art meets code in symmetrical, rotating 3D shapes with glowing edges.</p>
-      </div>
+<section id="gallery" class="py-20 px-10 md:px-24 bg-black/30 backdrop-blur-sm rounded-t-[3rem]">
+  <h3 class="text-4xl font-bold mb-10 text-center text-white">Our Art Gallery</h3>
+  <div class="grid md:grid-cols-3 gap-8">
+    
+    <!-- Card 1 -->
+    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition">
+      <img src="image2.jpg" alt="Digital Wave Art" class="w-full h-48 object-cover rounded-lg mb-4">
+      <h4 class="text-2xl mb-2 font-semibold text-white">Digital Wave</h4>
+      <p class="text-white/80">Flowing abstract waves in gradient colors brought to life with 3D curves.</p>
     </div>
-  </section>
 
-  <!-- Testimonials Section -->
-  <section id="testimonials" class="py-24 px-10 md:px-24 bg-black/40 backdrop-blur-md text-white">
-    <h3 class="text-4xl font-bold text-center mb-16">What Our Clients Say</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-pink-400 hover:scale-105 transition">
-        <p class="text-lg italic mb-4">"The 3D visuals are simply stunning. Our users were blown away by the interactivity and depth."</p>
-        <div class="font-bold text-pink-300">Sujan Shrestha</div>
-        <div class="text-sm text-white/70">Creative Director, VisionLab</div>
-      </div>
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-cyan-400 hover:scale-105 transition">
-        <p class="text-lg italic mb-4">"An extraordinary mix of art and code. The design truly feels alive and futuristic."</p>
-        <div class="font-bold text-cyan-300">Priya Karki</div>
-        <div class="text-sm text-white/70">UX Designer, Innovate Nepal</div>
-      </div>
-      <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-orange-400 hover:scale-105 transition">
-        <p class="text-lg italic mb-4">"One of the most beautiful web experiences we've ever had. Highly recommended!"</p>
-        <div class="font-bold text-orange-300">Anil Joshi</div>
-        <div class="text-sm text-white/70">CEO, SparkWebs</div>
-      </div>
+    <!-- Card 2 -->
+    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition">
+      <img src="image3.jpg" alt="Glowing Sphere" class="w-full h-48 object-cover rounded-lg mb-4">
+      <h4 class="text-2xl mb-2 font-semibold text-white">Glowing Sphere</h4>
+      <p class="text-white/80">A radiant wireframe sphere, floating in motion — powered by Three.js.</p>
     </div>
-  </section>
+
+    <!-- Card 3 -->
+    <div class="bg-white/10 p-6 rounded-xl hover:scale-105 transition">
+      <img src="image4.jpg" alt="Futuristic Geometry" class="w-full h-48 object-cover rounded-lg mb-4">
+      <h4 class="text-2xl mb-2 font-semibold text-white">Futuristic Geometry</h4>
+      <p class="text-white/80">Art meets code in symmetrical, rotating 3D shapes with glowing edges.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-24 px-10 md:px-24 bg-black/40 backdrop-blur-md text-white">
+  <h3 class="text-4xl font-bold text-center mb-16">What Our Clients Say</h3>
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <!-- Testimonial 1 -->
+    <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-pink-400 hover:scale-105 transition">
+      <img src="image5.jpg" alt="Sujan Shrestha" class="w-16 h-16 rounded-full mx-auto mb-4 border-2 border-pink-400 object-cover">
+      <p class="text-lg italic mb-4 text-center">"The 3D visuals are simply stunning. Our users were blown away by the interactivity and depth."</p>
+      <div class="font-bold text-pink-300 text-center">Oliver</div>
+      <div class="text-sm text-white/70 text-center">Creative Director, VisionLab</div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-cyan-400 hover:scale-105 transition">
+      <img src="image6.jpg" alt="Priya Karki" class="w-16 h-16 rounded-full mx-auto mb-4 border-2 border-cyan-400 object-cover">
+      <p class="text-lg italic mb-4 text-center">"An extraordinary mix of art and code. The design truly feels alive and futuristic."</p>
+      <div class="font-bold text-cyan-300 text-center">Charlotte</div>
+      <div class="text-sm text-white/70 text-center">UX Designer, Innovate Nepal</div>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="bg-white/10 p-6 rounded-2xl shadow-lg border-l-4 border-orange-400 hover:scale-105 transition">
+      <img src="image7.jpg" alt="Anil Joshi" class="w-16 h-16 rounded-full mx-auto mb-4 border-2 border-orange-400 object-cover">
+      <p class="text-lg italic mb-4 text-center">"One of the most beautiful web experiences we've ever had. Highly recommended!"</p>
+      <div class="font-bold text-orange-300 text-center">George</div>
+      <div class="text-sm text-white/70 text-center">CEO, SparkWebs</div>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Contact Section -->
   <section id="contact" class="py-20 px-10 md:px-24 bg-gradient-to-t from-[#1a1a40] to-transparent">
@@ -228,6 +252,12 @@ window.addEventListener('load', () => {
       <button type="submit" class="bg-orange-500 py-3 rounded-lg font-semibold text-lg hover:bg-orange-600 transition">Send Message</button>
     </form>
   </section>
+
+  <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="fixed bottom-6 right-6 bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full shadow-lg z-50">
+  ⬆️
+</button>
+
 
   <!-- ✅ Footer with working social icons -->
   <footer class="text-center py-12 bg-black/30 text-white space-y-6">
@@ -289,3 +319,4 @@ window.addEventListener('load', () => {
 
 </body>
 </html>
+
